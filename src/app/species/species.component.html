@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <app-search-bar (searchItem)="searchItem($event)"></app-search-bar>
+    <div class="row justify-content-between">
+        <div class="col-md-4">
+            <ul class="list-group">
+                <li class="list-group-item"
+                    *ngFor="let item of data"
+                    [ngClass]="{'active': item === selectedItem}"
+                    (click)="selectItem(item)">
+                    {{item.name}}
+                </li>
+            </ul>
+            <app-pagination 
+                [pages]="pages"
+                [currentPage]="currentPage"
+                (selectedPage)="pageSelected($event)"
+                (nextPage)="nextPage()"
+                (prevPage)="prevPage()"></app-pagination>
+        </div>
+        <div class="col-md-8" *ngIf="selectedItem !== undefined">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                      <app-loader *ngIf="isLoadingImg"></app-loader>
+                      <img [hidden]="isLoadingImg" [src]="imageOfItem" (load)="onLoad()" class="card-img" alt="..." onerror="this.src='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'">
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-bold">{{selectedItem.name}}</h3>
+                        <p class="card-text">Классификация: <span class="font-weight-bold">{{selectedItem.classification}}</span></p>
+                        <p class="card-text">Средний рост: <span class="font-weight-bold">{{selectedItem.average_height}}</span></p>
+                        <p class="card-text">Цвет кожи: <span class="font-weight-bold">{{selectedItem.skin_colors}}</span></p>
+                        <p class="card-text">Цвет волос: <span class="font-weight-bold">{{selectedItem.hair_colors}}</span></p>
+                        <p class="card-text">Цвет глаз: <span class="font-weight-bold">{{selectedItem.eye_colors}}</span></p>
+                        <p class="card-text">Средняя продолжительность жизни: <span class="font-weight-bold">{{selectedItem.average_lifespan}}</span></p>
+                        <p class="card-text">Язык общения: <span class="font-weight-bold">{{selectedItem.language}}</span></p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

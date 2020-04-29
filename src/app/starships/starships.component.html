@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <app-search-bar (searchItem)="searchItem($event)"></app-search-bar>
+    <div class="row justify-content-between">
+        <div class="col-md-4">
+            <ul class="list-group">
+                <li class="list-group-item"
+                    *ngFor="let item of data"
+                    [ngClass]="{'active': item === selectedItem}"
+                    (click)="selectItem(item)">
+                    {{item.name}}
+                </li>
+            </ul>
+            <app-pagination 
+                [pages]="pages"
+                [currentPage]="currentPage"
+                (selectedPage)="pageSelected($event)"
+                (nextPage)="nextPage()"
+                (prevPage)="prevPage()"></app-pagination>
+        </div>
+        <div class="col-md-8" *ngIf="selectedItem !== undefined">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                      <app-loader *ngIf="isLoadingImg"></app-loader>
+                      <img [hidden]="isLoadingImg" [src]="imageOfItem" (load)="onLoad()" class="card-img" alt="..." onerror="this.src='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'">
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-bold">{{selectedItem.name}}</h3>
+                        <p class="card-text">Модель: <span class="font-weight-bold">{{selectedItem.model}}</span></p>
+                        <p class="card-text">Классификация корабля: <span class="font-weight-bold">{{selectedItem.starship_class}}</span></p>
+                        <p class="card-text">Производитель: <span class="font-weight-bold">{{selectedItem.manufacturer}}</span></p>
+                        <p class="card-text">Производитель: <span class="font-weight-bold">{{selectedItem.cost_in_credits}}</span></p>
+                        <p class="card-text">Длина корабля: <span class="font-weight-bold">{{selectedItem.length}}</span></p>
+                        <p class="card-text">Кол-во экипажа: <span class="font-weight-bold">{{selectedItem.crew}}</span></p>
+                        <p class="card-text">Кол-во пассажиров: <span class="font-weight-bold">{{selectedItem.passengers}}</span></p>
+                        <p class="card-text">Вместительность багажа: <span class="font-weight-bold">{{selectedItem.cargo_capacity}}</span></p>
+                        <p class="card-text">Рейтинг гиперскорости: <span class="font-weight-bold">{{selectedItem.hyperdrive_rating}}</span></p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

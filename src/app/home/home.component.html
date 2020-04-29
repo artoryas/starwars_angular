@@ -1,0 +1,60 @@
+<div class="container">
+    <h1 class="display-4 font-weight-semi-bold text-center mt-3">Welcome to StarWars!</h1>
+    <h4 class="text-center">Краткая информация по вселенной звездных войн</h4>
+    <h4 class="text-center">Перейдите по вкладкам чтобы получить информацию</h4>
+    <div class="row mt-5">
+        <div class="col-md-3 d-flex align-items-stretch mb-2">
+            <div class="card">
+                <img src="https://starwars-visualguide.com/assets/img/categories/character.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Персонажи</h5>
+                    <p class="card-text">Список популярных героев «Звёздных войны».</p>
+                    <a href="javascript:;" 
+                       class="btn btn-primary bg-dark"
+                       [routerLink]="['/characters']">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex align-items-stretch mb-2">
+            <div class="card">
+                <img src="https://starwars-visualguide.com/assets/img/categories/planets.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Планеты</h5>
+                    <p class="card-text">Откройте для себя планеты вселенной «Звёздных войн»</p>
+                    <a href="javascript:;" 
+                       class="btn btn-primary bg-dark"
+                       [routerLink]="['/planets']">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex align-items-stretch mb-2">
+            <div class="card">
+                <img src="https://starwars-visualguide.com/assets/img/categories/species.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Расы</h5>
+                    <p class="card-text">Описание представителей целой вселенной</p>
+                    <a href="javascript:;" 
+                       class="btn btn-primary bg-dark"
+                       [routerLink]="['/species']">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex align-items-stretch mb-2">
+            <div class="card">
+                <img src="https://starwars-visualguide.com/assets/img/categories/starships.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Звездные корабли</h5>
+                    <p class="card-text">Узнайте детали быстрых и смертоносных кораблей</p>
+                    <a href="javascript:;" 
+                       class="btn btn-primary bg-dark"
+                       [routerLink]="['/starships']">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="lead mt-5 text-center">
+        Сайт сделан с использованием Angular, Bootstrap, Webpack, SCSS
+    </p>
+</div>
+    

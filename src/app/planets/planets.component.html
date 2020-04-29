@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <app-search-bar (searchItem)="searchItem($event)"></app-search-bar>
+    <div class="row justify-content-between">
+        <div class="col-md-4">
+            <ul class="list-group">
+                <li class="list-group-item"
+                    *ngFor="let item of data"
+                    [ngClass]="{'active': item === selectedItem}"
+                    (click)="selectItem(item)">
+                    {{item.name}}
+                </li>
+            </ul>
+            <app-pagination 
+                [pages]="pages"
+                [currentPage]="currentPage"
+                (selectedPage)="pageSelected($event)"
+                (nextPage)="nextPage()"
+                (prevPage)="prevPage()"></app-pagination>
+        </div>
+        <div class="col-md-8" *ngIf="selectedItem !== undefined">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                      <app-loader *ngIf="isLoadingImg"></app-loader>
+                      <img [hidden]="isLoadingImg" [src]="imageOfItem" (load)="onLoad()" class="card-img" alt="..." onerror="this.src='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'">
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-bold">{{selectedItem.name}}</h3>
+                        <p class="card-text">Период вращения: <span class="font-weight-bold">{{selectedItem.rotation_period}}</span></p>
+                        <p class="card-text">Период вращения вокруг орбиты: <span class="font-weight-bold">{{selectedItem.orbital_period}}</span></p>
+                        <p class="card-text">Диаметр: <span class="font-weight-bold">{{selectedItem.diameter}}</span></p>
+                        <p class="card-text">Климат: <span class="font-weight-bold">{{selectedItem.climate}}</span></p>
+                        <p class="card-text">Поверхность: <span class="font-weight-bold">{{selectedItem.terrain}}</span></p>
+                        <p class="card-text">Популяция: <span class="font-weight-bold">{{selectedItem.population}}</span></p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
