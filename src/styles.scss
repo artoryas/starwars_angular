@@ -1,22 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
-
+$main-color: #343a40;
 .list-group-item{
     cursor: pointer;
     &.active{
-        background-color: #343a40 !important;
+        background-color: $main-color !important;
         border-color: initial;
     }
 }
 
 .page-item{
     .page-link{
-        color: #343a40;
+        color: $main-color;
     }
     &.active{
-        background-color: #343a40;
+        background-color: $main-color;
         .page-link{
-            background-color: #343a40 !important;
+            background-color: $main-color !important;
             border-color: initial;
         }
     }
