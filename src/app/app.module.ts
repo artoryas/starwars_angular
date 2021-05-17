@@ -31,7 +31,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     SearchBarComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
