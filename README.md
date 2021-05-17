@@ -2,11 +2,7 @@
 
 This is the repository of Star Wars Reference Guide project, which provides information about the Star Wars universe.
 
-### Home page
-![Star Wars Home Page](src/assets/homepage.PNG)
 
-### Characters Page
-![Star Wars Home Page](src/assets/homepage.PNG)
 
 ## Demo 
 Use the app online at: https://starwars-angular.netlify.app
